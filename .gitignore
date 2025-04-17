@@ -6,16 +6,6 @@
 # Cada desarrollador debe crear su propio Includes/config.php a partir del ejemplo.
 Includes/config.php
 
-<?php
-return [
-    'host' => 'localhost',
-    'dbname' => 'agencia',
-    'username' => 'root',
-    'password' => 'root'
-];
-?>
-
-
 
 # ================================================
 # 🗂️ Carpetas y archivos comunes a ignorar
