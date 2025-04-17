@@ -47,6 +47,33 @@ AGENCIA/
 ---
 
 ## 🛠️ ¿Cómo trabajar en este proyecto?
+## 🔐 Configuración de la base de datos (local)
+
+Este proyecto utiliza una clase `Conexion` ubicada en `Includes/conexion.php` para conectarse a la base de datos usando PDO.
+
+Cada persona del equipo debe trabajar con **sus propias credenciales locales** (usuario, contraseña, nombre de base de datos, etc.).  
+Por eso, usamos un archivo **`config.php`** que contiene esa configuración, pero **NO se sube a GitHub**, ya que está protegido por `.gitignore`.
+
+---
+
+### 📁 Archivos implicados
+
+| Archivo | ¿Qué hace? | ¿Se sube a GitHub? |
+|--------|-------------|--------------------|
+| `Includes/config.php` | Contiene tus datos reales de conexión. Cada uno tiene el suyo. | ❌ No |
+| `Includes/config.example.php` | Plantilla para que todos sepan cómo crear su `config.php`. | ✅ Sí |
+
+---
+
+### 🛠️ ¿Qué tiene que hacer cada desarrollador?
+
+Después de clonar el proyecto, cada miembro del equipo debe hacer lo siguiente:
+
+1. Copiar el archivo de ejemplo:
+
+```bash
+cp Includes/config.example.php Includes/config.php
+
 
 ### 1️⃣ Crea una nueva rama desde `develop`
 
