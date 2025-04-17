@@ -109,7 +109,7 @@ git push origin master
 - [x] Estructura base creada
 - [x] Rama develop creada
 - [ ] Conexión con la base de datos
-- [ ] Funcionalidades dinámicas (platos, pedidos…)
+- [ ] Funcionalidades dinámicas 
 - [ ] Proyecto finalizado
 
 ---
