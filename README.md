@@ -20,20 +20,38 @@ Se encarga de que toda la documentación generada tenga un formato adecuado y es
 ---
 
 ## 📁 Estructura del proyecto
-
-```
 AGENCIA/
-├── Assets/               → CSS, imágenes, JS
-├── Includes/             → Archivos PHP reutilizables
-│   ├── header.php
-│   ├── footer.php
-│   ├── section.php
-│   └── conexion.php
-├── index.php             → Página principal
-├── .gitignore            → Archivos ignorados por Git
-└── README.md             → Este documento
-```
-
+│
+├── Includes/                    # Archivos comunes y configuración
+│   ├── conexion.php             # Conexión PDO a PostgreSQL
+│   ├── config.php               # Configuración real (NO subir a Git)
+│   ├── config.example.php       # Plantilla de configuración (SÍ subir a Git)
+│   ├── header.php               # Cabecera común
+│   ├── footer.php               # Pie de página común
+│
+├── controllers/                # Lógica de negocio
+│   ├── usuarioController.php
+│   ├── destinoController.php
+│   ├── guiaController.php
+│   └── pasaporteController.php
+│
+├── views/                      # Interfaz de usuario (formularios, listados)
+│   ├── crear_usuario.php
+│   ├── listar_usuarios.php
+│   ├── crear_destino.php
+│   ├── listar_destinos.php
+│   ├── crear_pasaporte.php
+│   
+│
+├── Assets/                     # Recursos estáticos
+│   ├── css/
+│   ├── js/
+│   └── img/
+│
+├── index.php                   # Página principal del sitio
+├── test_conexion.php           # Comprobación de conexión
+├── .gitignore                  # Archivos a ignorar (como config.php)
+└── README.md      
 ---
 
 ## 🚀 Flujo de trabajo con Git
