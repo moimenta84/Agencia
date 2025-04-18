@@ -21,6 +21,10 @@ Se encarga de que toda la documentación generada tenga un formato adecuado y es
 
 ## 📁 Estructura del proyecto
 AGENCIA/
+## 📁 Estructura de carpetas
+
+```bash
+AGENCIA/
 │
 ├── Includes/                    # Archivos comunes y configuración
 │   ├── conexion.php             # Conexión PDO a PostgreSQL
@@ -39,9 +43,7 @@ AGENCIA/
 │   ├── crear_usuario.php
 │   ├── listar_usuarios.php
 │   ├── crear_destino.php
-│   ├── listar_destinos.php
-│   ├── crear_pasaporte.php
-│   
+│   └── ...
 │
 ├── Assets/                     # Recursos estáticos
 │   ├── css/
@@ -50,9 +52,9 @@ AGENCIA/
 │
 ├── index.php                   # Página principal del sitio
 ├── test_conexion.php           # Comprobación de conexión
-├── .gitignore                  # Archivos a ignorar (como config.php)
-└── README.md      
----
+├── .gitignore
+└── README.md
+
 
 ## 🚀 Flujo de trabajo con Git
 
