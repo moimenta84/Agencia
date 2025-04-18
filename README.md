@@ -21,7 +21,6 @@ Se encarga de que toda la documentación generada tenga un formato adecuado y es
 
 ## 📁 Estructura del proyecto
 AGENCIA/
-## 📁 Estructura de carpetas
 
 ```bash
 AGENCIA/
