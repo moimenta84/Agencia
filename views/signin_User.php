@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="Assets/StyleUser.css" />
+    <link rel="stylesheet" href="../assets/StyleUser.css" />
     <link rel="stylesheet" href="fontWasame/fontawesome-free-6.7.1-web/css/all.css">
-    <link rel="icon" href="Assets/img/lenguaje de marcas.png" />
+    <link rel="icon" href="../assets/img/lenguaje de marcas.png" />
     <title>Creación de usuarios</title>
 </head>
 </head>
 <body>
   <div class="Container">
     <header>
-      <img src="Assets/img/logo.png" alt="Daw" class="Logo" />
-      <button class="Bock-Now" onclick="window.location.href='Index.html'">Volver</button>
+      <img src="../assets/img/logo.png" alt="Daw" class="Logo" />
+      <button class="Bock-Now" onclick="window.location.href='../Index.php'">Volver</button>
     </header>
 
     <main class="form-main">
@@ -35,7 +35,7 @@
 
     <footer>
       <div class="redes">
-        <img src="Assets/img/logo.png" class="logo_footer" alt="">
+        <img src="../assets/img/logo.png" class="logo_footer" alt="">
         <p class="parrafo_redes">Enjoy The touring</p>
         <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
         <a href="#"><i class="fa-brands fa-instagram"></i></a>
