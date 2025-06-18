@@ -1,0 +1,101 @@
+@import url('Style.css');
+
+
+
+.list-main {
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+.list-section {
+  background-color: #fdfdfd; 
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.list-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.list-section h1 {
+  font-size: 28px;
+  color: #000;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 15px;
+  font-size: 14px;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+th {
+  background-color: #F66F4D;
+  color: white;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #FFEFEA;
+  transition: background-color 0.3s ease;
+}
+
+/* Botones de acción */
+.edit-btn {
+  border-radius: 20px;
+  background-color: #dffc00;
+  color: #000;
+
+}
+
+.delete-btn {
+  background-color: #f51505;
+  color: #000;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+/* Centrado de botones bajo columnas */
+th:nth-child(4),
+td:nth-child(4),
+th:nth-child(5),
+td:nth-child(5) {
+  text-align: center;
+}
+.btn-custom {
+    background-color: #7C3AED; /* Tu color morado */
+    color: white;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #6b21a8; /* un poco más oscuro al pasar el ratón */
+}
+

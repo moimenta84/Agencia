@@ -1,0 +1,34 @@
+
+# ================================================
+# 🔐 Archivos sensibles (credenciales locales)
+# ================================================
+# Este archivo contiene los datos de conexión a la base de datos.
+# Cada desarrollador debe crear su propio Includes/config.php a partir del ejemplo.
+Includes/config.php
+
+
+# ================================================
+# 🗂️ Carpetas y archivos comunes a ignorar
+# ================================================
+
+
+=======
+#Actualizacion de documentos BD
+# Ignorar todos los archivos PDF
+/*.pdf
+Descripción.pdf
+Modelo Entidad-Relación.pdf
+Modelo relacional.pdf
+# Pero no ignorar este archivo SQL específico
+/!DDL Agencia_V.sql
+
+#Se han modificado los PDFs con los nuevos atribustos de la entidad Hotel y ID de Guias
+Agencia de viajes (Descrip.).pdf
+Modelo-Entidad-Relación.pdf
+Modelo-Relacional.pdf
+ 
+#Se ha añadido archivo de ProjectM
+Agencia_de_ViajesPI.pod
+
+
+
