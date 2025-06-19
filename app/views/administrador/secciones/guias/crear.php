@@ -27,7 +27,7 @@ unset($_SESSION['mensaje']);
         <?php if ($mensaje): ?>
           <div class="mensaje-error"><?= htmlspecialchars($mensaje) ?></div>
         <?php endif; ?>
-        <form method="POST" action="../../../controllers/guia_controllers.php" class="formulario">
+        <form method="POST" action="../../../app/controllers/guiaControllers.php" class="formulario">
           <input type="text" id="dni" name="dni" placeholder="DNI" required>
           <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
           <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required>

@@ -1,45 +1,27 @@
-<header style="background-color: #f9f9f9;">
-  <nav class="navbar navbar-expand-lg container-fluid">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="/index.php">
-        <img src="assets/img/lenguaje de marcas.png" alt="Logo" width="40" height="40" class="me-2">
-        <span class="fw-semibold" style="color: #a89b8e;">Agencia de Viajes</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
+<header class="admin-header border-bottom bg-light" style="border-bottom: 2px solid #000;">
+  <div class="d-flex justify-content-between align-items-center px-3 py-2">
+
+    <!-- Título -->
+    <div class="d-flex align-items-center gap-2">
+      <i class="fas fa-shield-alt fs-4 text-dark"></i>
+      <span class="fw-bold text-dark fs-5">Panel de Administración</span>
+      <span class="badge bg-dark text-white ms-2">ADMIN</span>
+    </div>
+
+    <!-- Botones -->
+    <div class="d-flex align-items-center gap-2">
+
+      <!-- Botón hamburguesa -->
+      <button class="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#adminSidebar" aria-controls="adminSidebar">
+        <i class="fas fa-bars text-dark"></i>
       </button>
 
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav align-items-center">
-          <li class="nav-item">
-            <a class="nav-link" style="color: #b3a79b;" href="/views/admin/guide/listado_guias.php">
-              <i class="fas fa-user-tie me-1"></i>Guías
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" style="color: #b3a79b;" href="/views/admin/user/listado_usuarios.php">
-              <i class="fas fa-users me-1"></i>Usuarios
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" style="color: #b3a79b;" href="/#destinos">
-              <i class="fas fa-map-marked-alt me-1"></i>Destinos
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" style="color: #b3a79b;" href="/views/authentification/login.php">
-              <i class="fas fa-sign-in-alt me-1"></i>Iniciar sesión
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-sm ms-2"
-               style="background-color: #e2ded9; color: #594d45; border: none;"
-               href="/views/authentification/signin_User.php">
-              <i class="fas fa-user-plus me-1"></i>Registrarse
-            </a>
-          </li>
-        </ul>
-      </div>
+      <!-- Botón salir -->
+      <a class="btn btn-outline-dark btn-sm" href="logout.php">
+        <i class="fas fa-sign-out-alt me-1"></i>Salir
+      </a>
     </div>
-  </nav>
+
+  </div>
 </header>

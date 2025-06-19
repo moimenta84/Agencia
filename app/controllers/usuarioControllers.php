@@ -1,7 +1,7 @@
 <?php
 // controllers/UsuarioController.php
 
-require_once __DIR__ . '/../models/Usuario.php';
+require_once  '../models/Usuario.php';
 
 class UsuarioController {
     private $modelo;
@@ -13,7 +13,7 @@ class UsuarioController {
     // Mostrar lista de usuarios (solo admin, normalmente)
     public function listar() {
         $usuarios = $this->modelo->listar();
-        include '../app/views/admin/usuarios/listar.php';
+        include '../app/views/administrador/usuarios/listar.php';
     }
 
     // Mostrar formulario de registro

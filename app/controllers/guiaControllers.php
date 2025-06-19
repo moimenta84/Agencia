@@ -1,79 +1,63 @@
 <?php
-require_once '../Includes/conexion.php';
-//INICIO SESSION - INCLUYE MENSAJES DE ERROR PARA CONEXION FALLIDA//
-session_start();
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+require_once 'models/Guia.php';
+require_once 'Includes/auth_check.php';
 
-// Limpiar mensaje anterior
-$_SESSION['mensaje'] = '';
+class GuiaController
+{
+    private $modelo;
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-
-    //--RECOGER DATOS DEL FORMULARIO--//
-    $dni = $_POST['dni'] ?? '';
-    $nombre = $_POST['nombre'] ?? '';
-    $apellidos = $_POST['apellidos'] ?? '';
-    $especialidad = $_POST['especialidad'] ?? '';
-    $pais_dest = $_POST['pais_dest'] ?? '';
-
-    //--ARRAY ERRORES--//
-    $errores = [];
-
-    // Validaciones
-    if ($dni === '') {
-        $errores[] = "El DNI es obligatorio.";
-    } else if (strlen($dni) !== 9) {
-        $errores[] = "El DNI debe tener exactamente 9 caracteres.";
+    public function __construct($conexion)
+    {
+        $this->modelo = new Guia($conexion);
     }
 
-    if ($nombre === '') {
-        $errores[] = "El nombre es obligatorio.";
+    public function index()
+    {
+        soloAdmin(); // protección por rol
+        $guias = $this->modelo->obtenerTodos();
+        require 'views/admin/guia/guias_list.php';
     }
 
-    if ($apellidos === '') {
-        $errores[] = "Los apellidos son obligatorios.";
+    public function crear()
+    {
+        //soloAdmin();
+        require 'views/administrador/secciones/guias/crear.php';
     }
 
-    if ($especialidad === '') {
-        $errores[] = "La especialidad es obligatoria.";
+    public function guardar()
+    {
+        soloAdmin();
+        $nombre = $_POST['nombre'] ?? '';
+        $idioma = $_POST['idioma'] ?? '';
+        $telefono = $_POST['telefono'] ?? '';
+
+        $this->modelo->crear($nombre, $idioma, $telefono);
+        header("Location: index.php?controlador=guia&accion=index");
     }
 
-    if ($pais_dest === '') {
-        $errores[] = "El país de destino es obligatorio.";
+    public function editar($id)
+    {
+        soloAdmin();
+        $guia = $this->modelo->obtenerPorId($id);
+        require 'views/admin/guia/guia_edit.php';
     }
 
-    // Si hay errores, guardar en sesión y redirigir
-    if (!empty($errores)) {
-        $_SESSION['mensaje'] = implode('<br>', $errores);
-        header("Location: ../views/admin/guia/create_Guide.php");
-        exit;
+    public function actualizar()
+    {
+        soloAdmin();
+        $id = $_POST['id'];
+        $nombre = $_POST['nombre'];
+        $idioma = $_POST['idioma'];
+        $telefono = $_POST['telefono'];
+
+        $this->modelo->actualizar($id, $nombre, $idioma, $telefono);
+        header("Location: index.php?controlador=guia&accion=index");
     }
 
-    try {
-        $sql = "INSERT INTO guia (dni, nombre, apellidos, especialidad, pais_dest)
-                    VALUES (?, ?, ?, ?, ?)";
-
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([
-
-            $dni,
-            $nombre,
-            $apellidos,
-            $especialidad,
-            $pais_dest
-        ]);
-
-        $_SESSION['mensaje'] = "Guia registrado correctamente.";
-
-        header("Location: ../views/admin/guia/create_guide.php");
-        exit;
-    } catch (PDOException $e) {
-        $_SESSION['mensaje'] = "Error en la base de datos: " . $e->getMessage();
-        header('Location: ../views/admin/guia/create_Guide.php');
-        exit;
+    public function eliminar($id)
+    {
+        soloAdmin();
+        $this->modelo->eliminar($id);
+        header("Location: index.php?controlador=guia&accion=index");
     }
 }
-
-?>

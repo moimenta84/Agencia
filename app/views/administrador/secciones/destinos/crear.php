@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../../../Includes/conexion.php';
+require_once '../../../../../includes/conexion.php';
 
 $mensaje = $_SESSION['mensaje'] ?? '';
 unset($_SESSION['mensaje']);
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $pdo->prepare("INSERT INTO destino (pais, ciudad, req_pass) VALUES (?, ?, ?)");
         $stmt->execute([$pais, $ciudad, $req_pass]);
         $_SESSION['mensaje'] = "Destino creado correctamente.";
-        header("Location: destiny_list.php");
+        header("Location: lista.php");
         exit;
     } catch (PDOException $e) {
         $_SESSION['mensaje'] = "Error al guardar: " . $e->getMessage();
@@ -27,9 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../../../assets/fontWasame/fontawesome-free-6.7.1-web/css/all.css" />
-    <link rel="icon" href="../../../assets/img/lenguaje de marcas.png" />
+    <link rel="stylesheet" href="../../../../../_public/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../_public/assets/fontWasame/fontawesome-free-6.7.1-web/css/all.css" />
+    <link rel="icon" href="../../../../../_public/assets/img/lenguaje de marcas.png" />
     <title>Nuevo Destino</title>
 </head>
 <body>
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- Botón volver -->
     <div class="text-end p-3">
-        <a href="destiny_list.php" class="btn btn-outline-primary rounded-pill">
+        <a href="../../../../../index.php" class="btn btn-outline-primary rounded-pill">
             ← Volver
         </a>
     </div>
@@ -81,9 +81,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
        
         </div>
-          <?php include '../../../Includes/footer.php'; ?>
+        
     </main>
 
-  
+    <?php include '../../../../../includes/footer.php'; ?>
 </body>
 </html>

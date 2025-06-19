@@ -1,5 +1,5 @@
 <?php
-require_once '../../../Includes/conexion.php';
+require_once '../../../../../Includes/conexion.php';
 session_start();
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion']) && $_POST['
         $_SESSION['mensaje'] = "Error al eliminar destino: " . $e->getMessage();
     }
 
-    header("Location: destiny_list.php");
+    header("Location: destinos/lista.php");
 
 }
 
@@ -37,10 +37,10 @@ try {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../../assets/StyleList.css" />
-    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../assets/fontWasame/fontawesome-free-6.7.1-web/css/all.css" />
-    <link rel="icon" href="../../../assets/img/lenguaje de marcas.png" />
+    <link rel="stylesheet" href="../../../../../assets/StyleList.css" />
+    <link rel="stylesheet" href="../../../../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../../assets/fontWasame/fontawesome-free-6.7.1-web/css/all.css" />
+    <link rel="icon" href="../../../../../assets/img/lenguaje de marcas.png" />
     <title>Lista de Destinos</title>
 </head>
 
