@@ -21,69 +21,67 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../../../../_public/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../../../../../_public/assets/fontWasame/fontawesome-free-6.7.1-web/css/all.css" />
-    <link rel="icon" href="../../../../../_public/assets/img/lenguaje de marcas.png" />
-    <title>Nuevo Destino</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nuevo Destino</title>
+  <link rel="stylesheet" href="../../../../../_public/assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../../../../_public/assets/fontWasame/fontawesome-free-6.7.1-web/css/all.css" />
+  <link rel="icon" href="../../../../../_public/assets/img/lenguaje de marcas.png" />
 </head>
-<body>
-    <?php if (!empty($mensaje)): ?>
-        <div class="alert alert-info text-center m-3" role="alert">
-            <?= htmlspecialchars($mensaje) ?>
-        </div>
-    <?php endif; ?>
 
-    <!-- Botón volver -->
-    <div class="text-end p-3">
-        <a href="../../../../../index.php" class="btn btn-outline-primary rounded-pill">
-            ← Volver
-        </a>
+<body class="bg-light">
+
+  <?php if (!empty($mensaje)): ?>
+    <div class="alert alert-info text-center m-3 rounded-pill shadow-sm">
+      <?= htmlspecialchars($mensaje) ?>
     </div>
-    <!-- MAIN centrado con card/formulario -->
-    <main class="d-flex justify-content-center align-items-center min-vh-100 bg-light">
-        <div class="card shadow rounded-4 p-5" style="width: 100%; max-width: 600px;">
-            <h2 class="mb-4 text-center text-primary">
-                <i class="fas fa-map-marked-alt me-2"></i> Nuevo destino
-            </h2>
+  <?php endif; ?>
 
-            <form method="POST" action="create_destiny.php">
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="pais" name="pais" placeholder="País" required>
-                    <label for="pais">País</label>
-                </div>
+  <div class="container py-4">
+    <div class="text-end mb-3">
+      <a href="../../../../../index.php" class="btn btn-outline-dark rounded-pill px-4">
+        ← Volver
+      </a>
+    </div>
 
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Ciudad" required>
-                    <label for="ciudad">Ciudad</label>
-                </div>
+    <div class="card shadow mx-auto p-4" style="max-width: 600px;">
+      <div class="text-center mb-4">
+        <i class="fas fa-map-marked-alt fa-2x text-secondary mb-2"></i>
+        <h4 class="fw-bold text-dark">Nuevo Destino</h4>
+      </div>
 
-                <div class="form-floating mb-4">
-                    <select class="form-select" id="req_pass" name="req_pass" required>
-                        <option value="" disabled selected>Selecciona una opción</option>
-                        <option value="1">Sí</option>
-                        <option value="0">No</option>
-                    </select>
-                    <label for="req_pass">¿Requiere pasaporte?</label>
-                </div>
-
-                <div class="d-grid">
-                    <button type="submit" class="btn btn-primary btn-lg rounded-pill shadow-sm">
-                        <i class="fas fa-plus-circle me-1"></i> Guardar destino
-                    </button>
-                </div>
-            </form>
-            
-       
+      <form method="POST" action="create_destiny.php">
+        <div class="mb-3">
+          <label for="pais" class="form-label">País</label>
+          <input type="text" class="form-control" id="pais" name="pais" required>
         </div>
-        
-    </main>
 
-    <?php include '../../../../../includes/footer.php'; ?>
+        <div class="mb-3">
+          <label for="ciudad" class="form-label">Ciudad</label>
+          <input type="text" class="form-control" id="ciudad" name="ciudad" required>
+        </div>
+
+        <div class="mb-4">
+          <label for="req_pass" class="form-label">¿Requiere pasaporte?</label>
+          <select class="form-select" id="req_pass" name="req_pass" required>
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option value="1">Sí</option>
+            <option value="0">No</option>
+          </select>
+        </div>
+
+        <div class="d-grid">
+          <button type="submit" class="btn btn-dark rounded-pill">
+            <i class="fas fa-save me-2"></i>Guardar destino
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <?php include '../../../../../includes/footer.php'; ?>
 </body>
 </html>

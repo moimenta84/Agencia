@@ -1,56 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/StyleCarousel.css">
-    <link rel="stylesheet" href="assets/fontWasame/fontawesome-free-6.7.1-web/css/all.css">
-    <title>Document</title>
-</head>
-<body>
-
-    <div class="carousel-container">
-        <button class="carousel-btn prev">‹</button>
-        <ul class="carousel">
-            <li><div class="card" tabindex="0">1</div></li> 
-            <li><div class="card" tabindex="0">2</div></li> 
-            <li><div class="card" tabindex="0">3</div></li> 
-            <li><div class="card" tabindex="0">4</div></li> 
-            <li><div class="card" tabindex="0">5</div></li> 
-            <li><div class="card" tabindex="0">6</div></li> 
-            <li><div class="card" tabindex="0">7</div></li> 
-            <li><div class="card" tabindex="0">8</div></li> 
-            <li><div class="card" tabindex="0">9</div></li> 
-            <li><div class="card" tabindex="0">10</div></li> 
-        </ul>
-        <button class="carousel-btn next">›</button>
-    </div>
-    <script src="assets/Carousel.js"></script>
-</body>
-</html>
-
 <?php
-require_once '../Includes/conexion.php';
+require_once 'includes/conexion.php';
 session_start();
 $stmt = $pdo->query("SELECT DISTINCT pais FROM destino ORDER BY pais ASC");
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>Reservar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="_public/assets/StyleCarousel.css">
+  <link rel="stylesheet" href="_public/assets/fontWasame/fontawesome-free-6.7.1-web/css/all.css">
 </head>
-<body>
-<ul class="carousel">
-  <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
-    <li>
-      <div class="card" data-pais="<?= htmlspecialchars($row['pais']) ?>">
-        <h3><?= htmlspecialchars($row['pais']) ?></h3>
-        <button onclick="reservar(this)">Book now</button>
-      </div>
-    </li>
-  <?php endwhile; ?>
-</ul>
 
+<body>
+
+  <div class="carousel-container">
+    <button class="carousel-btn prev">‹</button>
+    <ul class="carousel">
+      <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
+        <li>
+          <div class="card" tabindex="0" data-pais="<?= htmlspecialchars($row['pais']) ?>">
+            <img src="_public/assets/img/destinies/<?= strtolower(str_replace([' ', ',', '.'], ['-', '', ''], $row['pais'])) ?>.jpg"
+                 alt="<?= htmlspecialchars($row['pais']) ?>" 
+                 onerror="this.src='_public/assets/img/default.jpg'">
+            <h3><?= htmlspecialchars($row['pais']) ?></h3>
+            <button onclick="reservar(this)">Reservar</button>
+          </div>
+        </li>
+      <?php endwhile; ?>
+    </ul>
+    <button class="carousel-btn next">›</button>
+  </div>
+
+  <script>
+    function reservar(btn) {
+      const pais = btn.closest('.card').dataset.pais;
+      alert('Reserva iniciada para: ' + pais);
+    }
+
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+    const carousel = document.querySelector('.carousel');
+
+    prevBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>

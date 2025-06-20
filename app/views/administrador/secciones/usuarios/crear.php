@@ -8,55 +8,35 @@ unset($_SESSION['mensaje']);
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="/assets/fontWasame/fontawesome-free-6.7.1-web/css/all.css">
-  <link rel="icon" href="/assets/img/lenguaje de marcas.png" />
-  <title>Crear Usuario</title>
-  <style>
-    body {
-      background-color: #f5f4fa;
-    }
-    .form-card {
-      max-width: 500px;
-      border: none;
-      border-radius: 1rem;
-    }
-    footer i:hover {
-      opacity: 0.7;
-    }
-  </style>
+  <link rel="stylesheet" href="../../../../../_public/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../../_public/assets/fontWasame/fontawesome-free-6.7.1-web/css/all.css">
+   <title>Registrar Usuario</title>
 </head>
-<header style="background-color: #f9f9f9;" class="py-3 border-bottom">
-  <div class="container d-flex justify-content-between align-items-center">
-    <h1 class="h4 mb-0 d-flex align-items-center" style="color: #a89b8e;">
-      <i class="fas fa-building me-2"></i> Agencia de Viajes
-    </h1>
-    <nav>
-      <a href="/index.php"
-         class="btn btn-sm"
-         style="background-color: #e2ded9; color: #594d45; border: none;">
-        <i class="fas fa-home me-1"></i> Inicio
+<body class="bg-light">
+
+  <?php if (!empty($mensaje)): ?>
+    <div class="alert alert-info text-center m-3 rounded-pill shadow-sm">
+      <?= htmlspecialchars($mensaje) ?>
+    </div>
+  <?php endif; ?>
+
+  
+  <div class="container py-4">
+    <div class="text-end mb-3">
+      <a href="../../../../../index.php" class="btn btn-outline-dark rounded-pill px-4">
+        ← Volver
       </a>
-    </nav>
-  </div>
-</header>
+    </div>
 
 
-<body>
+    <div class="card shadow mx-auto p-4" style="max-width: 600px;">
+      <div class="text-center mb-4">
+        <i class="fas fa-user-plus fa-2x text-secondary mb-2"></i>
+        <h4 class="fw-bold text-dark">Nueva usuaio</h4>
+      </div>
 
-  <!-- MAIN centrado -->
-  <main class="d-flex justify-content-center align-items-center min-vh-100" style="background-color: #f9f9f9;">
-  <div class="card form-card shadow p-5" style="background-color: #fdfdfd; border: none;">
-    <h3 class="text-center mb-4" style="color: #8d735c;">
-      <i class="fas fa-user-plus me-2"></i> Crear usuario
-    </h3>
-    <p class="text-center text-muted mb-4">Rellena los campos para registrar un nuevo usuario.</p>
 
-    <?php if ($mensaje): ?>
-      <div class="alert alert-info text-center"><?= htmlspecialchars($mensaje) ?></div>
-    <?php endif; ?>
-
-    <form method="POST" action="/controllers/signin_controllers.php">
+    <form method="POST" action="../../../../app/controllers/guiaControllers.php">
       <div class="form-floating mb-3">
         <input type="text" class="form-control" id="dni" name="dni" placeholder="DNI" maxlength="9" required>
         <label for="dni">DNI</label>
@@ -89,20 +69,15 @@ unset($_SESSION['mensaje']);
 
       <div class="d-grid">
         <button type="submit"
-                class="btn btn-lg rounded-pill shadow-sm"
+                class="btn btn-dark rounded-pill"
                 style="background-color: #cabfa5; color: #3b2f25; border: none;">
           <i class="fas fa-check me-2"></i> Crear cuenta
         </button>
       </div>
     </form>
   </div>
-</main>
+</div>
 
-        </div>
-      </form>
-    </div>
-  </main>
-
-  <?php include(__DIR__ . '/../../Includes/footer.php'); ?>
+ <?php include '../../../../../includes/footer.php'; ?>
 </body>
 </html>

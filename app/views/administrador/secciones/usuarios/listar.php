@@ -1,5 +1,5 @@
 <?php
-require_once '../includes/conexion.php';
+require_once '../../../../../includes/conexion.php';
 session_start();
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -36,9 +36,9 @@ try {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../../../assets/StyleList.css" />
+    <link rel="stylesheet" href="../../../../../_public/assets/StyleList.css" />
     <link rel="stylesheet" href="fontWasame/fontawesome-free-6.7.1-web/css/all.css" />
-    <link rel="stylesheet" href="../../../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../../assets/css/bootstrap.min.css">
     <link rel="icon" href="../assets/img/lenguaje de marcas.png" />
     <title>Listar usuarios</title>
 </head>
@@ -92,7 +92,7 @@ try {
         </table>
     </div>
 
-    <?php include '../../../includes/footer.php'; ?>
+        <?php include '../../../../../includes/footer.php'; ?>
 
 </body>
 
